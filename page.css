@@ -1,7 +1,30 @@
-.alert {
+h2 {
+  margin-top: -920px;
+  margin-left: 365px;
+  position: absolute;
+}
+
+h3 {
+  margin-top: -30px;
+}
+.alert{
+  position: absolute;
+}
+
+.alert, #alertsave{
+  display:none;
+  height: 150px;
+  margin-top: -700px;
+  margin-left: 408px;
+  margin-bottom: 300px;
+  position: fixed;
+  width: 400px;
+}
+
+.alertpopup {
   color: red;
   display: none;
-  margin-bottom: -30px;
+  margin-bottom: -20px;
 }
 
 .focus {
@@ -28,31 +51,48 @@
   float: left;
   height: 420, auto;
   margin: 50px;
-  margin-top: -530px;
-  margin-left: 425px;
+  margin-top: -880px;
+  margin-left: 370px;
   padding: 30px;
   position: absolute;
   width: 500px;
 }
 
+.img-rounded {
+  margin-top: 50px;
+  margin-right: 30px;
+}
+
 .right {
   float: right;
   margin: 0px;
-  margin-top: -562px;
-  margin-left: 426px;
+  margin-top: -840px;
+  margin-left: 436px;
+  margin-bottom: 5px;
   padding: 30px;
-  position: absolute;
+  position: fixed;
   display: none;
+  z-index: 1;
 }
 
 #bottom {
   border: 1px solid lightgray;
   box-shadow: -1px 3px 20px 8px rgba(0,0,0,0.75);
   display: ;
-  height: 480px;
-  margin-top: -30px;
-  margin-left: -125px;
+  height: 530px;
+  margin-top: -40px;
+  margin-left: -200px;
+  margin-bottom: 30px;
+  position: fixed;
   width: 700px;
+
+}
+#imagebottom {
+  background-color: black;
+  height: 280px;
+  margin-top: 0px;
+  margin-right: 0px;
+
 }
 
 #top {
@@ -60,10 +100,10 @@
   background-color: gray;
   border-radius: 3px;
   float: right;
-  height: 420px;
+  height: 470px;
   margin: 0px;
-  margin-top: -449px;
-  margin-left: -31px;
+  margin-top: 0px;
+  margin-left: -96px;
   padding: 30px;
   position: absolute;
   width: 500px;

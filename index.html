@@ -8,24 +8,47 @@
     <script src="js/bootstrap.min.js"></script>
     <link rel='stylesheet' type='text/css' href="page.css">
     <script src='page.js'></script>
+    <!-- sctipt and css files of Datepicker -->
+    <link rel = 'stylesheet' type = 'text/css' href = 'datepicker/Datepicker.css'>
+    <script src = 'datepicker/Datepicker.js'></script>
+
   </head>
   <body>
     <div width=100%> <!-- parent div with width 100% -->
       <div id=image>
-        <img src='background image1.jpg' width=1300 height=650></img>
+        <img src='background image1.jpg' width=1301 height=673></img>
+      </div>
+      <div id='imagebottom'>
+        <div class="col-md-2">
+          &nbsp;
+        </div>
+        <div class="col-md-3">
+          <img src='img1.jpg' class="img-rounded" width=200 height=200 alt='image missing'></img>
+        </div>
+        <div class="col-md-3">
+          <img src='img2.jpg' class="img-rounded" width=200 height=200 alt='image missing'></img>
+        </div>
+        <div class="col-md-3">
+          <img src='img3.jpg' class="img-rounded" width=200 height=200 alt='image missing'></img>
+        </div>
+      </div>
+      <div>
+        <h2>Registration Form</h2>
       </div>
       <div class='left' width='50%'> <!-- child div that displays the form-->
+
+        <!-- Registration Page -->
         <div class="form-group" id='table'>
           <div class="row">
             <div class="col-sm-6">
               <label for="firstname">FirstName:</label>
               <input type="text" placeholder='Enter First Name' class="form-control"  id="firstname">
-              <p for="firstname" class='alert' id='alertfirstname'>Enter valid First Name</p>
+              <p for="firstname" class='alertpopup' id='alertfirstname'>Enter valid First Name</p>
             </div>
             <div class="col-sm-6">
               <label for="lastname">LastName:</label>
               <input type="text" placeholder='Enter Last Name' class="form-control"  id="lastname">
-              <p for="firstname" class='alert' id='alertlastname'>Enter valid Last Name</p>
+              <p for="firstname" class='alertpopup' id='alertlastname'>Enter valid Last Name</p>
             </div>
           </div>
 
@@ -37,7 +60,7 @@
             <div class="col-sm-6">
               <label for="username">UserName:</label>
               <input type="text" placeholder='Enter User Name' class="form-control" id="username">
-              <p for="username" class='alert' id='alertusername'>Enter Valid User Name</p>
+              <p for="username" class='alertpopup' id='alertusername'>Enter Valid User Name</p>
             </div>
             <div class="col-sm-6">
               <label for="sel1">Domian:</label>
@@ -48,7 +71,7 @@
                 <option>@hotmail.com</option>
                 <option>@outlook.com</option>
               </select>
-              <p for="username" class='alert' id='alertsell'>select valid domian</p>
+              <p for="username" class='alertpopup' id='alertsell'>select valid domian</p>
             </div>
           </div>
 
@@ -68,7 +91,9 @@
           </div>
 
           <div class="row">
-            <p for="pwd" class='alert' id='alertpwd'>Check your password again & password should be 6 characters</p>
+            <center>
+              <p for="pwd" class='alertpopup' id='alertpwd'>Enter password & password should be 6 characters</p>
+            </center>
             &nbsp;
           </div>
 
@@ -76,14 +101,50 @@
             <div class="col-sm-6">
               <label for="usr">Contact No:</label>
               <input type="Text" placeholder='Enter Contact No' class="form-control" id="ContactNo">
-              <p for="ContactNo" class='alert' id='alertContactNo'>Enter valid  mobile number</p>
+              <p for="ContactNo" class='alertpopup' id='alertContactNo'>Enter valid  mobile number</p>
             </div>
             <div class="col-sm-6">
               <label for="email">Alt Email:</label>
-              <input type="Text" placeholder='Enter Altername Email Id' class="form-control" id="email">
-              <p for="email" class='alert' id='alertemail'>Enter valid Email</p>
+              <input type="Text" placeholder='Enter Alternate Email Id' class="form-control" id="email">
+              <p for="email" class='alertpopup' id='alertemail'>Enter valid Email</p>
             </div>
           </div>
+
+          <div class="row">
+            &nbsp;
+          </div>
+
+          <div class='row'>
+            <div class="col-sm-6">
+              <label for="textbox">Date Of Birth:</label>
+              <input type='Text' class="form-control" onclick='Datepicker()' id='textbox'/>
+      		    <div id = 'mydiv'></div>
+              <p for="textbox" class='alertpopup' id='alertdob'>Please select date of birth</p>
+            </div>
+
+            <div class="col-sm-1">
+              &nbsp;
+            </div>
+            <div class="col-sm-1">
+              <label for="textbox">Gender:</label>
+                <input type="radio" name="optradio" class="form-control" id='MyRadio' value='male'>Male
+            </div>
+            <div class="col-sm-1">
+              &nbsp;
+            </div>
+            <div class="col-sm-1">
+              <label for="textbox">&nbsp;</label>
+              <input type="radio" name="optradio" class="form-control" id='MyRadio' value='female'>FeMale
+            </div>
+            <div class="col-sm-1">
+              &nbsp;
+            </div>
+
+            <div class="col-sm-1">
+              &nbsp;
+            </div>
+          </div>
+
 
           <div class="row">
             &nbsp;
@@ -100,17 +161,21 @@
               &nbsp;
             </div>
           </div>
+        </div>
+        <!-- end of register Page -->
 
+        <!-- Login Page -->
+        <div>
         </div>
       </div>
 
-      <div class='right' width='40%'> <!-- child div that displays pop up box -->
+      <div class='right' width='30%'> <!-- child div that displays pop up box -->
 		    <div id='bottom'>
-			    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			    <span class="glyphicon glyphicon-remove" aria-hidden="true" id='popout'></span>
 		    </div>
 		    <div id='top'>
 			    <p><h3>Please Check the Details which you had Entered</h3></p>
-			    <div id='mydiv'></div>
+			    <div id='mydivtable'></div>
 
           <div class="row">
 				    <div class="col-sm-5">
@@ -125,6 +190,15 @@
 			    </div>
 		    </div>
 		  </div>
+      <div class="alert alert-success" id='alertsave'>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true" id='tabcross'></span>
+        <strong>Success!</strong> Sucess fully saved the details and your
+        registration completed.
+        <p> &nbsp; </p>
+        <center>
+          <p><a><strong>Log In now</strong></p>
+        </center>
+      </div>
 	  </div><!-- main div ends -->
   </body>
 </html>

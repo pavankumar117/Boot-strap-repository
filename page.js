@@ -88,27 +88,52 @@ $(document).ready(function() {
       fld.value = "";
       fld.focus();
       return false;
+    } else {
+      count++;
     }
-    count++;
+
 
     //validation for Email
-    var email = document.getElementById('email').value;
-    $('#email').removeClass("focus");
+    var email = document.getElementById("email").value;
     $('#alertemail').hide();
-    if (email == null || email.indexOf('@') == -1 || email.indexOf('.') == -1){
+    $('#email').removeClass("focus");
+    var atpos = email.indexOf("@");
+    var dotpos = email.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length || email == null) {
       $('#alertemail').show();
       $('#email').addClass("focus");
-	  $('.right').hide();
-    }	else {
-		count++;
-	}
+    } else {
+      count++;
+    }
 
+
+    var dob = document.getElementById('textbox').value;
+
+    var sex = document.getElementById("MyRadio").checked;
+    if (sex == true) {
+      gender = 'Male';
+    } else {
+      gender = 'FeMale'
+    }
+
+    console.log(gender);
+    //validation for Date of birth
+    /*
+    var dob = document.getElementById('textbox').value;
+    console.log(textbox);
+    if (dob === null) {
+      alert(hello);
+      $('alertdob').show();
+    }
+    */
+
+    console.log(count)
 	if (count === 7) {
-		$('.right').show();
-	}
+		$('.right').show(1000);
+
 
   //Printing the tables of values from forms
-	var dvv = document.getElementsByClassName('mydiv');
+	var dvv = document.getElementsByClassName('mydivtable');
 	var table = ""
 	table += "<table class='table table-bordered' id='table'>";
 	table += "<tr align='center'><td>FirstName</td>";
@@ -121,21 +146,36 @@ $(document).ready(function() {
 	table += "<td>" + ContactNo + "</td></tr>";
 	table += "<tr align='center'><td>Alternamte Email</td>";
 	table += "<td>" + email + "</td></tr>";
+  table += "<tr align='center'><td>Alternamte Email</td>";
+	table += "<td>" + email + "</td></tr>";
+  table += "<tr align='center'><td>DOB(yyyy/mm/dd)</td>";
+	table += "<td>" + dob + "</td></tr>";
+  table += "<tr align='center'><td>Gender</td>";
+	table += "<td>" + gender + "</td></tr>";
 	table += "</table>";
-	document.getElementById('mydiv').innerHTML=table;
+	document.getElementById('mydivtable').innerHTML=table;
+  }
   });
 
+
   $('#Save').click(function(){
-	  $('.right').hide();
-    location.reload();
+    $('.right').hide();
+    $('#table').hide();
+    $('h2').hide();
+    $('#alertsave').show();
   });
 
   $('#Cancel').click(function(){
 	  $('.right').hide();
   });
 
-  $('.glyphicon').click(function(){
+  $('#popout').click(function(){
 	  $('.right').hide();
   });
 
+  $('#tabcross').click(function(){
+    $('#alertsave').hide();
+    $('#table').show();
+    $('h2').show();
+  });
 });
